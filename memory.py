@@ -15,7 +15,9 @@ from turtle import *
 from freegames import path
 
 car = path('car.gif')
-tiles = list(range(32)) * 2
+"""se agregan caracteres especiales para las tiles"""
+symbols=['!', '>>', '<<', '>', '<', '¬', '°', '|', ';', ',', ':', '.', '-', '^', ']', '}', '[', '{', '~', '*', '+', '¡', '¿', '?', '=', ')', '(', '/', '&', '%', '$', '#']
+tiles = symbols * 2
 """Agregación del contador de taps"""
 state = {'mark': None, 'taps': 0}
 hide = [True] * 64
