@@ -15,8 +15,11 @@ from turtle import *
 from freegames import path
 
 car = path('car.gif')
-tiles = list(range(32)) * 2
-state = {'mark': None}
+"""se agregan caracteres especiales para las tiles"""
+symbols=['!', '>>', '<<', '>', '<', '¬', '°', '|', ';', ',', ':', '.', '-', '^', ']', '}', '[', '{', '~', '*', '+', '¡', '¿', '?', '=', ')', '(', '/', '&', '%', '$', '#']
+tiles = symbols * 2
+"""Agregación del contador de taps"""
+state = {'mark': None, 'taps': 0}
 hide = [True] * 64
 
 
@@ -48,6 +51,9 @@ def tap(x, y):
     spot = index(x, y)
     mark = state['mark']
 
+    """Incrementa contador de taps"""
+    state['taps'] += 1
+
     if mark is None or mark == spot or tiles[mark] != tiles[spot]:
         state['mark'] = spot
     else:
@@ -59,6 +65,13 @@ def tap(x, y):
 def draw():
     """Draw image and tiles."""
     clear()
+
+    """Mostrar taps"""
+    up()
+    goto(-180, 200)
+    color('black')
+    write(f'Taps: {state["taps"]}', font=('Arial', 16, 'normal'))
+
     goto(0, 0)
     shape(car)
     stamp()
@@ -92,7 +105,7 @@ def draw():
 
 
 shuffle(tiles)
-setup(420, 420, 370, 0)
+setup(600, 600, 370, 0)
 addshape(car)
 hideturtle()
 tracer(False)
