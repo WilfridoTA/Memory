@@ -74,16 +74,17 @@ def draw():
         x, y = xy(mark)
         up()
 	
-	#Centrar el numero
+	#Se centran los numeros que se muestran al voltear los cuadrados
         goto(x + 10, y + 5)
 	
         color('black')
         write(tiles[mark], font=('Arial', 30, 'normal'))
 
-    #Revisar si todos los cuadrados se han destapado
+    #Revisar si todos los cuadrados han sido volteados
     if all(not h for h in hide):
     	goto(0, 0)
     	color('white')
+	#Al estar todos volteados se muestra el texto GANASTE en el centro de la pantalla
     	write("GANASTE!", align="center", font=('Arial', 50, 'normal'))
 
     update()
