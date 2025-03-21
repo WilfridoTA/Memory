@@ -73,7 +73,10 @@ def draw():
     if mark is not None and hide[mark]:
         x, y = xy(mark)
         up()
-        goto(x + 2, y)
+	
+	#Centrar el numero
+        goto(x + 10, y + 5)
+	
         color('black')
         write(tiles[mark], font=('Arial', 30, 'normal'))
 
