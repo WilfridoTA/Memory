@@ -77,6 +77,12 @@ def draw():
         color('black')
         write(tiles[mark], font=('Arial', 30, 'normal'))
 
+    #Revisar si todos los cuadrados se han destapado
+    if all(not h for h in hide):
+    	goto(0, 0)
+    	color('white')
+    	write("GANASTE!", align="center", font=('Arial', 50, 'normal'))
+
     update()
     ontimer(draw, 100)
 
